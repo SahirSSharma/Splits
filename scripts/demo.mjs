@@ -28,7 +28,7 @@ for (const [label, { rows }] of Object.entries(histories)) {
     const [time, flag, meet, date] = r.cells;
     if (flag !== "" || r.flags.length) { dropped++; continue; }
     const iso = isoDate(date);
-    swims.push({ event: `${dist} ${STROKE[strokeName]} ${course}`, time, date: iso, meet, age: ageOn(iso, born) });
+    swims.push({ event: `${dist} ${STROKE[strokeName]} ${course}`, time, date: iso, meet });
   }
 }
 swims.sort((a, b) => a.date.localeCompare(b.date) || a.event.localeCompare(b.event));

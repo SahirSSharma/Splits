@@ -7,7 +7,7 @@ since your first swim; and your Swimcloud Power Index, with the base time each e
 number links to the official USA Swimming sheet it came from, with the date it was fetched.
 
 Built for [Beginner's Paradise — FirstCommit](https://firstcommit.devpost.com/) (Aug 21 – Sep 30, 2026).
-Submission copy in [devpost/SUBMISSION.md](devpost/SUBMISSION.md); the hackathon's rules and criteria in
+Submission copy will be in [devpost/SUBMISSION.md](devpost/SUBMISSION.md) (skeleton for now); the hackathon's rules and criteria in
 [devpost/HACKATHON.md](devpost/HACKATHON.md).
 
 _Status: day 1 — data and core libraries, see PROGRESS.md._
@@ -42,18 +42,21 @@ No API key, no database, no server route: everything runs in the browser from tw
   usaswimming.org/times/time-standards. The 2026 Winter Juniors sheet is an image and is not included.
 - Swimcloud Power Index base times: Swimcloud's published class-of-2027/28 table, and a class-of-2026 table
   back-solved from live profiles (provisional, labelled as such).
-- The demo swimmer is me: 373 official individual swims, 2017–2025, from my own Swimcloud profile.
+- The demo swimmer is me: 373 official individual swims, 2017–2025, from my own Swimcloud profile. Only the
+  swims, dates and meets are committed, plus my age on the day the file was built.
 
 ## Tests
 `npm test` runs every suite in `test/`. `standards.test.js` also checks the whole ingested corpus: every ladder
 complete and strictly faster from B to AAAA.
 
 ## AI disclosure
-_Draft — final wording is mine._ I built Splits with Claude Code as a pair programmer. I chose the product, the
-scope and the data sources; it scaffolded the project, wrote the ingest, the parsers and their tests to contracts we
-agreed in DESIGN.md, and reviewed my code. I wrote `lib/powerindex.js` myself from my own reverse-engineering of
-the Swimcloud Power Index, and the entries in LEARNING.md. Every commit was reviewed and run by me before it was
-pushed. The full session transcripts are kept and available on request.
+_Working draft; the final wording will be written by me, Sahir._ Splits is being built with Claude Code as a pair
+programmer. I chose the product, the scope and the data sources. So far the agent scaffolded the project and wrote
+the ingest, the parsers, the standards and progression modules and their tests to contracts we agreed in
+DESIGN.md; the commits to date were authored by it and are mine to review. `lib/powerindex.js` is specified and
+tested but deliberately unwritten: I will write it myself from my own reverse-engineering of the Swimcloud Power
+Index, along with the entries in LEARNING.md. The full session transcripts are kept and available on request
+(where they live is recorded in PROGRESS.md).
 
 ## Credits
 - USA Swimming for publishing the standards; Swimcloud for the times pages swimmers paste from.

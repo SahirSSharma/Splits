@@ -28,7 +28,8 @@ paste / CSV / typed times ──▶ lib/parse.js ──▶ swims[]  (+ profile: 
 - `scripts/ingest.mjs` downloads the USA Swimming PDFs, runs `pdftotext -layout`, parses the tables and writes
   `data/standards.json`. It is committed; a Vercel build never runs the ingest.
 - `scripts/demo.mjs` builds `data/demo.json` (the demo swimmer) from a Swimcloud event-history export kept outside
-  the repo. Only official individual swims are kept. The birthdate used for ages is never written to the output.
+  the repo. Only official individual swims are kept. The output carries the swimmer's age on the build date, not a
+  birthdate and not per-swim ages.
 - Everything in `lib/` is plain ESM with no framework imports so it runs in `node --test` and in the browser.
 
 ## Data contracts
@@ -41,7 +42,7 @@ paste / CSV / typed times ──▶ lib/parse.js ──▶ swims[]  (+ profile: 
 `X` extracted split, `U` user-entered, `A` altitude-adjusted — flagged swims are shown but never count as bests.
 
 **Profile:** `{ "gender": "M"|"F", "age": 18, "gradClass": 2026 }`. `age` is the swimmer's age **today**, typed by the
-swimmer (the demo computes it from a birthdate that is not committed). Cuts are measured against the bracket that
+swimmer (the demo file records the age on the day it was built). Cuts are measured against the bracket that
 age falls in now: motivational 10U · 11-12 · 13-14 · 15-16 · 17-18 (none at 19+); Futures 18U / 19O; Sectionals
 all ages; Junior Nationals 18U. USA Swimming applies age on the first day of a meet; "today" is the honest
 approximation for "what applies to me now", and the UI names the bracket it used.
@@ -86,7 +87,7 @@ mile compare fairly. `per50` = gap ÷ (distance ÷ 50). For motivational sets `l
   Swimcloud does not compute an index for the class of 2025 or earlier, so the demo swimmer's card is labelled
   "as a class-of-2026 swimmer".
 
-**`data/demo.json`:** `{ name, gender, age, ageAsOf, gradClass, club, source, note, swims: [Swim + age] }` — 373 official
+**`data/demo.json`:** `{ name, gender, age, ageAsOf, gradClass, club, source, note, swims: [Swim] }` — 373 official
 individual swims, 2017–2025, 30 events.
 
 ## Stack (all declared for the hackathon)
@@ -113,6 +114,7 @@ Vercel. Every push → preview deployment (= staging, reported with its URL). Pr
 - 2026-09-18 — Age is a typed input (age today), not a birthdate; brackets are named on screen. The demo swimmer
   turns 19 on Oct 4, inside judging; `ageAsOf` is recorded so the change is visible rather than silent.
 - 2026-09-18 — `lib/powerindex.js` is specified, tested and left unwritten for Sahir (FirstCommit's AI rule and the
-  30 % Learning & Growth criterion). Tests fail until he writes it; the UI shows the card as "coming" meanwhile.
+  30 % Learning & Growth criterion). Its tests are marked `todo` so `npm test` stays a usable regression gate;
+  they turn into real passes when he writes it. The UI shows the card as "coming" meanwhile.
 - 2026-09-18 — Working name "Splits". It was chosen for the race-pacing idea, which is cut from scope (input
   burden: one race page per swim). Renaming is one `gh repo rename` if Sahir prefers a name that says cuts.

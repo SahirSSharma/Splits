@@ -1,9 +1,10 @@
-// Reproduces the published numbers in SwimCloud-PowerIndex-Formula.md. These fail until lib/powerindex.js is written.
+// Reproduces the published numbers in SwimCloud-PowerIndex-Formula.md. Marked todo until Sahir writes lib/powerindex.js:
+// they run and report, but do not fail the suite. Remove `{ todo: true }` as each one passes.
 import test from "node:test";
 import assert from "node:assert/strict";
 import { baseTime, powerPoints, powerIndex, swimmerPowerIndex } from "../lib/powerindex.js";
 
-test("base times come from the class table, 2028 shares 2027", () => {
+test("base times come from the class table, 2028 shares 2027", { todo: true }, () => {
   assert.equal(baseTime({ gradClass: 2027, gender: "M", course: "SCY", slot: "100 FR" }), 42.39);
   assert.equal(baseTime({ gradClass: 2028, gender: "M", course: "SCY", slot: "100 FR" }), 42.39);
   assert.equal(baseTime({ gradClass: 2026, gender: "M", course: "SCY", slot: "100 FR" }), 42.69);
@@ -12,14 +13,14 @@ test("base times come from the class table, 2028 shares 2027", () => {
   assert.equal(baseTime({ gradClass: 2026, gender: "F", course: "SCM", slot: "400 FR" }), null);
 });
 
-test("power points: base time scores exactly 1.00, slower scores more, clamped", () => {
+test("power points: base time scores exactly 1.00, slower scores more, clamped", { todo: true }, () => {
   assert.equal(powerPoints(42.39, 42.39), 1);
   assert.equal(powerPoints(48.77, 42.69), 50.1); // ((48.77/42.69)^3 − 1) × 100 + 1
   assert.equal(powerPoints(60, 42.39), 100);
   assert.equal(powerPoints(40, 42.39), 1);
 });
 
-test("power index reproduces the five published swimmers", () => {
+test("power index reproduces the five published swimmers", { todo: true }, () => {
   assert.equal(powerIndex({ a: 6.69, b: 8.01 }), 18.37);
   assert.equal(powerIndex({ a: 8.42, b: 13.08, c: 15.33 }), 12.04);
   assert.equal(powerIndex({ a: 11.25, b: 18.82, c: 33.13 }), 17.78);
@@ -29,7 +30,7 @@ test("power index reproduces the five published swimmers", () => {
   assert.equal(powerIndex({ a: 5 }), null);
 });
 
-test("a swimmer's index uses one course per slot and skips flagged swims", () => {
+test("a swimmer's index uses one course per slot and skips flagged swims", { todo: true }, () => {
   const swims = [
     { event: "100 FR SCY", time: "48.77", date: "2025-03-02" },
     { event: "100 FR LCM", time: "57.61", date: "2023-07-16" },   // 100 FR slot: SCY scores lower (50.10 vs 70.79)

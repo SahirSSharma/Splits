@@ -23,16 +23,23 @@ Deadline: **Sept 30, 2026, 2:00 pm PDT** (5 pm EDT). Target submission: **Sept 2
 - `LEARNING.md` — headings and prompts are in place; the entries are his.
 - The README's "AI disclosure" paragraph — a draft is there; the final wording is his.
 
+## Where the AI chat history lives (the rules say organizers may ask for it)
+- Day 1 was run from a Claude Code session whose working directory was the Standing repo, so its hook log is
+  `~/Desktop/Standing/.claude/session-log.jsonl` and its transcript is under
+  `~/.claude/projects/-Users-sahir-Desktop-Standing/`. From day 2, sessions start in `~/Desktop/Splits`, so the
+  log accrues at `~/Desktop/Splits/.claude/session-log.jsonl` (gitignored, kept) and the transcripts under
+  `~/.claude/projects/-Users-sahir-Desktop-Splits/`.
+
 ## Day 1 — what works (2026-09-18)
 - `npm run ingest`: four USA Swimming PDFs → `data/standards.json`: 482 motivational ladders (5 age groups × 3
   courses × up to 18 events × 2 genders), Sectionals 68 cuts, Futures 136 (18U + 19O), Junior Nationals 68 + 68
   bonus. Every ladder checked monotonic B → AAAA by a test. Winter Juniors skipped (image PDF).
 - `npm run demo`: 373 official individual swims for the demo swimmer, 2017-03-18 → 2025-03-02, 30 events; 43
-  flagged rows dropped. Ages computed at build from a birthdate that is not in the repo.
+  flagged rows dropped. Only the swimmer's age on the build date is stored; per-swim ages are not (they would pin the birthday).
 - `lib/`: time parsing/formatting, event normalisation (every spelling → `100 FR SCY`), standards (age brackets,
   personal bests, cuts, closest), progression (history with running PBs, per-event summary), paste parser
-  (Swimcloud times layout, free-form lines, CSV with header). `npm test`: every suite green except
-  `powerindex` (by design, see above).
+  (Swimcloud times layout, free-form lines, CSV with header). `npm test`: 25 pass; the four `powerindex`
+  tests run as `todo` (they print, they fail, the suite still exits 0) until Sahir writes the module.
 
 ## Staging
 - Preview (staging): https://splits-r4i2wk71h-sss-4bfd.vercel.app — the day-1 placeholder page, read back through
