@@ -11,3 +11,5 @@
   2026-09-16 note; `test/powerindex.test.js` reproduces the five published swimmers and fails until he writes it.
 - DESIGN.md contracts and decisions, PROGRESS.md plan through Sept 29, LEARNING.md scaffold, README with the AI
   disclosure draft, `devpost/HACKATHON.md` (rules, dates, criteria, prizes, deltas from LexHack).
+- Vercel project `splits` linked (same team as Standing); first preview on staging. `fetchedAt` in the ingest is
+  the local date (the first run stamped the UTC date, a day ahead).

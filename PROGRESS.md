@@ -34,6 +34,16 @@ Deadline: **Sept 30, 2026, 2:00 pm PDT** (5 pm EDT). Target submission: **Sept 2
   (Swimcloud times layout, free-form lines, CSV with header). `npm test`: every suite green except
   `powerindex` (by design, see above).
 
+## Staging
+- Preview (staging): https://splits-9m5gp0s9i-sss-4bfd.vercel.app — the day-1 placeholder page, read back through
+  `vercel curl` (heading, 822 standards / 5 sets, 373 demo swims). Preview URLs sit behind Vercel's login, so open
+  it signed in; a public production URL comes with the domain, on an explicit go.
+- **Note:** the very first `vercel deploy` (no flags) from `main` was recorded as a *Production* deployment
+  (`splits-f853baocj-sss-4bfd.vercel.app`, placeholder content, no domain attached). Not intended; nothing public
+  points at it. Every deploy from here on is `vercel deploy --target=preview`.
+- `vercel git connect` could not link the GitHub repo: the Vercel account has no GitHub login connection. Deploys
+  stay CLI-driven (as with Standing). Optional: add the connection at vercel.com/account/login-connections.
+
 ## Not yet verified
 - **A real clipboard paste from Swimcloud.** The parser is built against the page's row structure (time · flag ·
   meet · date under an event heading) and a synthetic fixture. Sahir copies his own Times page once; it becomes

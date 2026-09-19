@@ -108,6 +108,6 @@ for (const src of SOURCES) {
     console.log(`${src.id}: ${sections.map((s) => `${s.ages}${s.bonus ? " bonus" : ""}=${Object.keys(s.times).length}`).join(", ")}`);
   }
 }
-const result = { fetchedAt: new Date().toISOString().slice(0, 10), sets };
+const result = { fetchedAt: new Date().toLocaleDateString("sv-SE"), sets }; // local YYYY-MM-DD
 writeFileSync(join(out, "standards.json"), JSON.stringify(result, null, 1) + "\n");
 console.log(`wrote data/standards.json (${sets.length} sets)`);
