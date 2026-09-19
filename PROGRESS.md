@@ -42,7 +42,7 @@ Deadline: **Sept 30, 2026, 2:00 pm PDT** (5 pm EDT). Target submission: **Sept 2
   tests run as `todo` (they print, they fail, the suite still exits 0) until Sahir writes the module.
 
 ## Staging
-- Preview (staging): https://splits-r4i2wk71h-sss-4bfd.vercel.app — the day-1 placeholder page, read back through
+- Preview (staging): https://splits-m9hh2t8q5-sss-4bfd.vercel.app — the day-1 placeholder page, read back through
   `vercel curl` (heading, 822 standards / 5 sets, 373 demo swims). Preview URLs sit behind Vercel's login, so open
   it signed in; a public production URL comes with the domain, on an explicit go.
 - **Note:** the very first `vercel deploy` (no flags) from `main` was recorded as a *Production* deployment
