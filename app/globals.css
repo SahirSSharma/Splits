@@ -1,26 +1,36 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* Pool deck: cool white water, deep lane-line navy, one aqua accent. Aqua is a surface/border colour — never body text. */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-water: #f4f8fb;
+  --color-card: #ffffff;
+  --color-ink: #0b2545;
+  --color-ink-hover: #13315c;
+  --color-muted: #4d5f7a;
+  --color-line: #dbe5ee;
+  --color-aqua: #16a1c8;
+  --color-aqua-tint: #e2f4f9;
+  --color-aqua-deep: #0c6f8c;
+  --color-touch: #f2c14e;
+  --color-touch-tint: #fdf3d8;
+
+  --shadow-card: 0 1px 2px rgb(11 37 69 / 0.04), 0 10px 30px -14px rgb(11 37 69 / 0.14);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: light;
+  font-size: 16px;
+}
+@media (width >= 96rem) {
+  html { font-size: 17px; }
+}
+@media (width >= 137.5rem) {
+  html { font-size: 18px; }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  ::selection { background: var(--color-aqua-tint); }
 }

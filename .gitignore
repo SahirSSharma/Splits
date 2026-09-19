@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Splits
+.env*.local
+.vercel
+.claude/session-log.jsonl
+
+# ingest cache (downloaded PDFs)
+.cache

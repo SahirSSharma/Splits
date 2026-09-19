@@ -1,0 +1,60 @@
+Copyright © 2026 Sahir Sharma. All rights reserved.
+
+This repository is published so that it can be read — as a portfolio and a
+reference work. It is SOURCE-AVAILABLE, NOT OPEN SOURCE. Publishing it grants
+no licence to use it.
+
+
+WHAT YOU MAY DO
+
+  - Read and study the source code and the documentation.
+  - Fork the repository on GitHub, to the extent GitHub's Terms of Service
+    require that of public repositories.
+  - Quote short excerpts, with attribution, for commentary, review, teaching,
+    or academic citation.
+
+
+WHAT YOU MAY NOT DO WITHOUT PRIOR WRITTEN PERMISSION
+
+  - Copy, reproduce or redistribute this work, in whole or in any substantial
+    part.
+  - Modify it, or create derivative works from it.
+  - Incorporate it, or any substantial part of it, into another project —
+    personal, academic, or commercial.
+  - Run it against a course forum you do not administer, or otherwise deploy,
+    host or operate it as a service.
+  - Use it to train, fine-tune or evaluate machine learning models.
+
+No licence is granted by implication, estoppel, or otherwise. Rights not
+expressly granted above are reserved. To request permission, open an issue on
+this repository.
+
+THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE WORK OR THE USE OR OTHER DEALINGS IN THE WORK.
+
+
+THIRD-PARTY DEPENDENCIES
+
+The terms above cover the original code and documentation in this repository
+ONLY. The dependencies declared in requirements.txt — including anthropic,
+piazza-api, Flask, flask-cors, certifi, playwright, pypdf, python-docx and
+python-pptx — are not the author's to license and remain governed by their own
+terms. They are declared, not vendored; nothing in this repository
+redistributes them.
+
+The sample syllabus in syllabus.txt is fictional (CS 101, "Dr. Alex Rivera",
+example.edu) and exists so the pipeline has something to run against. It is not
+any real course's material.
+
+
+NOT AFFILIATED
+
+Axiom is unofficial and independent. It is not affiliated with, endorsed by, or
+operated by Piazza Technologies, Instructure (Canvas), Anthropic, or any
+university. Operating it against a course forum is subject to that forum's own
+terms and to your institution's academic-integrity policy; the responsibility
+for that is the operator's, not the author's.

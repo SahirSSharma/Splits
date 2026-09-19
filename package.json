@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --test",
+    "ingest": "node scripts/ingest.mjs",
+    "demo": "node scripts/demo.mjs"
   },
   "dependencies": {
     "next": "16.3.5",
@@ -18,5 +21,6 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
     "tailwindcss": "^4"
-  }
+  },
+  "type": "module"
 }
